@@ -5,6 +5,8 @@ Using test-driven development with RSpec, create the following classes:
 ### `Track`
 
 * Has a title, list of artists, duration, and price
+* Has a "discount" method that reduces the price by a given percentage
+* Has a "reset discount" method that restores the price to its original value
 
 ### `Album`
 
