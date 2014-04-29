@@ -41,4 +41,20 @@ describe Track do
       expect(@track.price).to eq 0.85
     end
   end
+
+  describe '#reset_discount' do
+    it 'removes any discounts previously applied' do
+      track = Track.new(
+        title: 'Pink Cadillac',
+        artists: 'Natalie Cole',
+        duration: 313,
+        price: 1.0
+      )
+      track.set_discount(0.25)
+
+      track.reset_discount
+
+      expect(track.price).to eq 1.0
+    end
+  end
 end

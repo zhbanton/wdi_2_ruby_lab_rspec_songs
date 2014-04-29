@@ -9,4 +9,8 @@ class Track
   def set_discount(percentage)
     @price = @original_price * (1 - percentage)
   end
+
+  def reset_discount
+    set_discount(0)
+  end
 end
