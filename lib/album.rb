@@ -4,4 +4,8 @@ class Album
   def initialize(title:, tracks:)
     @title, @tracks = title, tracks
   end
+
+  def duration
+    tracks.map(&:duration).reduce(&:+)
+  end
 end
