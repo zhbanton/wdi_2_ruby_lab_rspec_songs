@@ -32,7 +32,22 @@ describe Album do
     end
   end
 
-  def new_track(title: 'x', artists: ['a1', 'a2'], duration: 300, price: 1.0)
-    Track.new(title: title, artists: artists, duration: duration, price: price)
+  describe '#price' do
+    it 'sums the prices of all tracks' do
+      tracks = [
+        new_track(price: 0.75),
+        new_track(price: 2.0, discount: 0.25),
+        new_track(price: 1.25)
+      ]
+      album = Album.new(title: 'price test', tracks: tracks)
+
+      expect(album.price).to eq 3.5
+    end
+  end
+
+  def new_track(title: 'x', artists: ['a1', 'a2'], duration: 300, price: 1.0, discount: 0)
+    track = Track.new(title: title, artists: artists, duration: duration, price: price)
+    track.set_discount(discount)
+    track
   end
 end
