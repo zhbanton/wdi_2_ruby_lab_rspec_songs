@@ -12,4 +12,8 @@ class Album
   def price
     tracks.map(&:price).reduce(&:+)
   end
+
+  def artists
+    tracks.map(&:artists).flatten.uniq.sort
+  end
 end

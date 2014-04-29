@@ -45,6 +45,19 @@ describe Album do
     end
   end
 
+  describe '#artists' do
+    it 'gets an alphabetized list of all artists on all tracks' do
+      tracks = [
+        new_track(artists: ['Peter', 'Paul']),
+        new_track(artists: ['Piper', 'Pumpkin', 'Perry']),
+        new_track(artists: ['Paul', 'Piper'])
+      ]
+      album = Album.new(title: 'artists test', tracks: tracks)
+
+      expect(album.artists).to eq ['Paul', 'Perry', 'Peter', 'Piper', 'Pumpkin']
+    end
+  end
+
   def new_track(title: 'x', artists: ['a1', 'a2'], duration: 300, price: 1.0, discount: 0)
     track = Track.new(title: title, artists: artists, duration: duration, price: price)
     track.set_discount(discount)
