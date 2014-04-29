@@ -58,6 +58,22 @@ describe Album do
     end
   end
 
+  describe '#single?' do
+    it 'is true if the album has one track' do
+      album = Album.new(title: 'single test', tracks: [new_track])
+
+      expect(album).to be_single
+    end
+
+    it 'is false if the album has more than one track' do
+      album1 = Album.new(title: 'test1', tracks: [new_track, new_track])
+      album2 = Album.new(title: 'test2', tracks: [new_track, new_track, new_track])
+
+      expect(album1).to_not be_single
+      expect(album2).to_not be_single
+    end
+  end
+
   def new_track(title: 'x', artists: ['a1', 'a2'], duration: 300, price: 1.0, discount: 0)
     track = Track.new(title: title, artists: artists, duration: duration, price: price)
     track.set_discount(discount)

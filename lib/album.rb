@@ -16,4 +16,8 @@ class Album
   def artists
     tracks.map(&:artists).flatten.uniq.sort
   end
+
+  def single?
+    tracks.count == 1
+  end
 end
