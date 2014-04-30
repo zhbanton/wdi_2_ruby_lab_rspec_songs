@@ -18,6 +18,6 @@ Using test-driven development with RSpec, create the following classes:
 * Has a list of artists (combined artists of all tracks in alphabetical order &ndash; *no duplicates*)
 * Can determine whether the album is a single (has exactly one track)
 
-### Bonus
+### Optional Exploration
 
 Still using test-driven development, add some data validation to these classes. For instance, I probably shouldn't be able to create an album with no tracks, or set a track's discount greater than 100%. Think of ways someone could abuse your code &ndash; what happens if I try to create a track with the "list of artists" set to `42`? Generally it's appropriate to raise `ArgumentError` when your methods receive invalid data as an argument.
