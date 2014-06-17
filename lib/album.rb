@@ -14,5 +14,22 @@ class Album
     sum
   end
 
+  def price
+    # @track_list.map(&:price).reduce(0, &:+)
+    prices = @track_list.map { |track| track.price }
+    prices.reduce { |sum, price| sum + price }
+  end
+
+  def artist_list
+    # artists = []
+    #   @track_list.each do |track|
+    #     track.artists.each do |artist|
+    #       artists << artist
+    #     end
+    #   end
+    # artists.uniq.sort
+
+    track_list.map(&:artists).flatten.uniq.sort
+  end
 
 end
