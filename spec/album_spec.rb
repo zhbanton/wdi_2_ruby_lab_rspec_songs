@@ -39,4 +39,22 @@ describe Album do
     end
   end
 
+  describe '#single' do
+    it 'returns false if album is not a single' do
+      expect(album.single?).to be false
+      # expect(album).to_not be_single - shorthand provided by rspec
+    end
+    it 'returns true if album is a single' do
+      album2 = Album.new("x", [track1])
+      expect(album2.single?).to be true
+    end
+  end
+
+  # Alex defined new_track method down here to create throw away tracks for easy testing- called a factory
+
+  def new_track(title: 'x', artists: ['a1', 'a2'], duration: 300, price: 1.0, discount: discount)
+    track = Track.new(title: title, artists: artists, duration: duration, price: price)
+    track.set_discount(discount)
+    track
+  end
 end

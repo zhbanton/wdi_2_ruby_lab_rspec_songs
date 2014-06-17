@@ -32,4 +32,8 @@ class Album
     track_list.map(&:artists).flatten.uniq.sort
   end
 
+  def single?
+    @track_list.length == 1
+  end
+
 end
